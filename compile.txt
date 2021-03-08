@@ -1,1 +1,0 @@
-g++ src/Application.cpp -o bin/Application; ./bin/Application
