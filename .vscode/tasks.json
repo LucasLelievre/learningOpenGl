@@ -7,9 +7,21 @@
             "command": "g++",
             "args": [
                 "-g",
-                "${workspaceFolder}/src/Application.cpp",
+                "-Wall",
+                "-Wextra",
+                "-pedantic",
+                /* include path */
+                "-I${workspaceFolder}\\include\\GLFW\\include",
+                /* .cpp files */
+                "${workspaceFolder}\\src\\Application.cpp",
+                /* output */
                 "-o",
-                "${workspaceFolder}/bin/Application.exe"
+                "${workspaceFolder}\\bin\\Application.exe",
+                /* library path */
+                "-L${workspaceFolder}\\include\\GLFW\\lib-mingw",
+                /* libraries */
+                //"-lopengl32",
+                "-lglfw3dll"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
@@ -21,6 +33,14 @@
                 "kind": "build",
                 "isDefault": true
             }
+        },
+        {
+            "label": "run",
+            "type": "shell",
+            "command": "${workspaceFolder}/bin/Application.exe",
+            "dependsOn": [
+                "build"
+            ]
         }
     ]
 }
