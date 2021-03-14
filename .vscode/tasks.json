@@ -3,7 +3,7 @@
     "tasks": [
         {
             "type": "shell",
-            "label": "C/C++: g++ build active file",
+            "label": "build",
             "command": "i686-w64-mingw32-g++",
             "args": [
                 "-g",
@@ -18,31 +18,36 @@
                 /* include path */
                 "-I${workspaceFolder}\\include\\GLFW32\\include",
                 /* library path */
-                "-L${workspaceFolder}\\include\\GLFW32\\lib-mingw",
+                //"-L${workspaceFolder}\\include\\GLFW32\\lib-mingw",
+                "-L${workspaceFolder}\\include\\GLFW32\\lib-static-ucrt",
                 /* libraries */
                 "-lmingw32",
                 "-lgdi32",
                 "-lopengl32",
-                "-lglfw3dll"
+                "-lglfw3"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
             },
             "problemMatcher": [
                 "$gcc"
+            ]
+        },
+        {
+            "label": "run",
+            "type": "shell",
+            "command": "Start-Process",
+            "args": [
+                "-FilePath",
+                "${workspaceFolder}\\bin\\Application.exe"
+            ],
+            "dependsOn": [
+                "build"
             ],
             "group": {
                 "kind": "build",
                 "isDefault": true
             }
-        },
-        {
-            "label": "run",
-            "type": "shell",
-            "command": "${workspaceFolder}/bin/Application.exe",
-            "dependsOn": [
-                "build"
-            ]
         }
     ]
 }

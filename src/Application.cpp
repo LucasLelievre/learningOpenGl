@@ -1,8 +1,11 @@
 #include <GLFW/glfw3.h>
+#include <iostream>
 
 int main(void)
 {
     GLFWwindow* window;
+
+    std::cout << "Hello bitch\n";
 
     /* Initialize the library */
     if (!glfwInit())
