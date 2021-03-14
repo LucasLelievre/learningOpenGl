@@ -4,23 +4,25 @@
         {
             "type": "shell",
             "label": "C/C++: g++ build active file",
-            "command": "g++",
+            "command": "i686-w64-mingw32-g++",
             "args": [
                 "-g",
                 "-Wall",
                 "-Wextra",
                 "-pedantic",
-                /* include path */
-                "-I${workspaceFolder}\\include\\GLFW\\include",
                 /* .cpp files */
                 "${workspaceFolder}\\src\\Application.cpp",
                 /* output */
                 "-o",
                 "${workspaceFolder}\\bin\\Application.exe",
+                /* include path */
+                "-I${workspaceFolder}\\include\\GLFW32\\include",
                 /* library path */
-                "-L${workspaceFolder}\\include\\GLFW\\lib-mingw",
+                "-L${workspaceFolder}\\include\\GLFW32\\lib-mingw",
                 /* libraries */
-                //"-lopengl32",
+                "-lmingw32",
+                "-lgdi32",
+                "-lopengl32",
                 "-lglfw3dll"
             ],
             "options": {
